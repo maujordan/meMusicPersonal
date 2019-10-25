@@ -6,7 +6,7 @@ import json
 
 #Variable para identificar que el estado de "pista1" sea
 #diferente al anterior
-a="f"
+a="variable_global"
 
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -21,7 +21,7 @@ channel4 = pygame.mixer.Channel(3)
 
 def elegir_sonido(color, x, y):
     global a
-    pista1=color +x +y +".ogg"
+    pista1="audios/"+color +x +y +".ogg"
     """ pista2=color2 +cordX2 +cordY2 +".ogg"
         pista3=color3 +cordX3 +cordY3 +".ogg"
         pista4=color4 +cordX4 +cordY4 +".ogg"
@@ -38,12 +38,9 @@ def elegir_sonido(color, x, y):
     print(f"------a: {a}\n------pista1: {pista1}")
     if a != pista1:
 
-        print("entramos al  if 1")
         print(pista1)
         sonido1= pygame.mixer.Sound(pista1)
         channel1.play(sonido1, loops=-1)
-
-
         a=pista1
 
 
